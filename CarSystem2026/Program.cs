@@ -21,6 +21,24 @@ public class Program
             Console.WriteLine( "  3. View Car List");
             Console.WriteLine( "  4. Exit Program");
             Console.WriteLine("\n======================================");
+            
+            Console.WriteLine("Input the number of the option: ");
+            string optionSelected = Console.ReadLine();
+            
+            
+
+            switch (optionSelected)
+            {
+                case "1":
+                break;
+                case "2":
+                break;
+                case "3":
+                break;
+                case "4":
+                break;
+            }
+            
             isLoop = false;
         }
     }
