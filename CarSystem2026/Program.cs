@@ -6,12 +6,13 @@ namespace carsystem2026;
 public class Program
 {
     public static void Main()
-    {
+    {   
+        List<Car> carList = new List<Car>();
 
         Console.WriteLine("=====================================");
         Console.WriteLine("========   CAR SYSTEM 2026   ========");
         Console.WriteLine("=====================================");
-
+        
         bool isLoop = true;
         while (isLoop)
         {
@@ -29,7 +30,20 @@ public class Program
 
             switch (optionSelected)
             {
+                
                 case "1":
+                    Car car = new Car();
+                    car.Id = carList.Count() + 1;
+                    Console.WriteLine("Name of car: ");
+                    car.Name = Console.ReadLine();
+                    Console.WriteLine("Year of car: ");
+                    car.Year = Convert.ToInt32(Console.Read());
+                    Console.WriteLine("Engine Power: ");
+                    car.Engine = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("\n=============================");
+                    Console.WriteLine("Car was been add in the stock");
+                    Console.WriteLine("=============================");
+
                 break;
                 case "2":
                 break;
@@ -39,7 +53,7 @@ public class Program
                 break;
             }
             
-            isLoop = false;
+            //isLoop = false;
         }
     }
 }
