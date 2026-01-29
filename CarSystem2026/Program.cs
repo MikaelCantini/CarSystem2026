@@ -47,20 +47,43 @@ public class Program
                     
                 break;
                 case "2":
-                    isLoop = false;
+                    if(carList.Count() == 0)
+                    {
+                        Console.WriteLine("\n!!! No cars to remove, list is empty !!!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Input the car Id to Delete");
+                        int carIdDelete = Convert.ToInt32(Console.ReadLine());                       
+                        carList.RemoveAll(car => car.Id == carIdDelete);
+                        Console.WriteLine($"!!! Car Id: {carIdDelete} . Has been Removed from the list !!!");
+                        
+                    }   
+
                 break;
+
                 case "3":
                     Console.WriteLine("============= CAR LIST ===============");
-                    foreach(Car cars in carList)
+                    if(carList.Count() == 0)
                     {
-                        Console.WriteLine($"\nId: {cars.Id}");
-                        Console.WriteLine($"Name of the Car: {cars.Name}");
-                        Console.WriteLine($"Year of the Car: {cars.Year}");
-                        Console.WriteLine($"Engine of the Car: {cars.Engine}");
-                        Console.WriteLine("\n======================================");
+                        Console.WriteLine("\n!!! List is empty, please add a Car in menu options !!!");
                     }
+                    else
+                    {
+                         foreach(Car cars in carList)
+                        {
+                            Console.WriteLine($"\nId: {cars.Id}");
+                            Console.WriteLine($"Name of the Car: {cars.Name}");
+                            Console.WriteLine($"Year of the Car: {cars.Year}");
+                            Console.WriteLine($"Engine of the Car: {cars.Engine}");
+                            Console.WriteLine("\n======================================");
+                        }
+                    }
+                   
                 break;
+                
                 case "4":
+                    isLoop = false;
                 break;
             }
             
