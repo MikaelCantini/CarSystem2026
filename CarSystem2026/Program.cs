@@ -39,7 +39,7 @@ public class Program
                     Console.WriteLine("Year of car: ");
                     car.Year = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("Engine Power: ");
-                    car.Engine = Convert.ToDouble(Console.ReadLine());
+                    car.Engine = Console.ReadLine();
                     Console.WriteLine("\n=============================");
                     Console.WriteLine("Car was been add in the stock");
                     Console.WriteLine("=============================");
@@ -50,14 +50,14 @@ public class Program
                     isLoop = false;
                 break;
                 case "3":
-                    Console.WriteLine("\n======================================");
+                    Console.WriteLine("============= CAR LIST ===============");
                     foreach(Car cars in carList)
                     {
-                        Console.WriteLine($"\nId of the Car: {cars.Id}");
+                        Console.WriteLine($"\nId: {cars.Id}");
                         Console.WriteLine($"Name of the Car: {cars.Name}");
                         Console.WriteLine($"Year of the Car: {cars.Year}");
                         Console.WriteLine($"Engine of the Car: {cars.Engine}");
-                        Console.WriteLine("======================================");
+                        Console.WriteLine("\n======================================");
                     }
                 break;
                 case "4":
