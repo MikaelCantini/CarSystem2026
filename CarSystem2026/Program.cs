@@ -126,6 +126,11 @@ public class Program
                     isLoop = false;
                 
                 break;
+                default:
+                    Console.WriteLine("\n========================================================");
+                    Console.WriteLine("!!! ERROR, INVALID OPTION SELECTED, PLEASE TRY AGAIN !!!");
+                    Console.WriteLine("========================================================");
+                break;
             }
             
             //isLoop = false;
