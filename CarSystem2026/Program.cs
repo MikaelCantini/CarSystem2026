@@ -2,14 +2,18 @@
 using System.Data.Common;
 using System.Linq.Expressions;
 using System.Runtime.InteropServices.Marshalling;
+using System.IO;
+using System.Text.Json;
 
 namespace carsystem2026;
 
 public class Program
 {
+    private const string FileName = "carsystemdb.json";
     public static void Main()
     {   
-        List<Car> carList = new List<Car>();
+        
+        List<Car> carList = CarregarDados();
 
         Console.WriteLine("\n=====================================");
         Console.WriteLine("========   CAR SYSTEM 2026   ========");
@@ -82,7 +86,7 @@ public class Program
                     {
 
                         carList.Add(car);
-
+                        SalvarDados(carList);
                         Console.WriteLine("\n=============================");
                         Console.WriteLine("Car was been add in the stock");
                         Console.WriteLine("=============================");
@@ -107,7 +111,7 @@ public class Program
                         Console.WriteLine("Input the car Id to Delete");
                         int carIdDelete = Convert.ToInt32(Console.ReadLine());                       
                         carList.RemoveAll(car => car.Id == carIdDelete);
-                       
+                        SalvarDados(carList);
                         Console.WriteLine($"!!! Car Id: {carIdDelete} . Has been Removed from the list !!!");
                         for(int i = 0; i < carList.Count(); i++)
                         {
@@ -170,8 +174,25 @@ public class Program
                 break;
             }
             
-            //isLoop = false;
+            
         }
+        
 
     }
+    static void SalvarDados(List<Car> lista)
+        {
+            string jsonString = JsonSerializer.Serialize(lista, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(FileName, jsonString);
+        }
+
+    static List<Car> CarregarDados()
+        {
+            if (File.Exists(FileName))
+            {
+                string jsonString = File.ReadAllText(FileName);
+                // Se o arquivo estiver vazio, retorna uma nova lista
+                return JsonSerializer.Deserialize<List<Car>>(jsonString) ?? new List<Car>();
+            }
+            return new List<Car>();
+        }
 }
