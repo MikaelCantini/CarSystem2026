@@ -39,18 +39,55 @@ public class Program
 
                     Console.WriteLine("Name of car: ");
                     car.Name = Console.ReadLine();
-                    
+                    if (car.Name == "")
+                    {
+                        Console.WriteLine("\n=======================================");
+                        Console.WriteLine("Error, the name of car cannot be empty.");
+                        Console.WriteLine("=======================================");
+                        break;
+                    }
+
                     Console.WriteLine("Year of car: ");
-                    car.Year = Convert.ToInt32(Console.ReadLine());
+                    string isEmpty = Console.ReadLine();
+                    if (string.IsNullOrEmpty(isEmpty))
+                    {
+
+                        Console.WriteLine("\n=======================================");
+                        Console.WriteLine("Error, the year of car cannot be empty.");
+                        Console.WriteLine("=======================================");
+                        break;
+
+                    }
+                    else
+                    {
+
+                        car.Year = Convert.ToInt32(isEmpty);
                     
+                    }
+                    
+                   
+
                     Console.WriteLine("Engine Power: ");
                     car.Engine = Console.ReadLine();
-                    
-                    carList.Add(car);
-                    
-                    Console.WriteLine("\n=============================");
-                    Console.WriteLine("Car was been add in the stock");
-                    Console.WriteLine("=============================");
+                    if (car.Engine == "")
+                    {
+                        
+                        Console.WriteLine("\n=========================================");
+                        Console.WriteLine("Error, the Engine of car cannot be empty.");
+                        Console.WriteLine("=========================================");
+                        break;
+
+                    }
+                    else
+                    {
+
+                        carList.Add(car);
+
+                        Console.WriteLine("\n=============================");
+                        Console.WriteLine("Car was been add in the stock");
+                        Console.WriteLine("=============================");
+
+                    }
                     
                     
                 break;
